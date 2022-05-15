@@ -1,26 +1,44 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import UnLock from '../views/unlock/unlock.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import UnLock from '../views/unlock/unlock.vue';
+import Account from '../views/account/account.vue';
+import Send from '../views/send/send.vue';
+import store from '@/store';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
-    name: 'unlock',
-    component: UnLock
+    name: 'Unlock',
+    component: UnLock,
   },
-  // {
-  //   path: '/component',
-  //   name: 'component',
-  //   component: () => import('../components/component-template/component-template.vue')
-  // }
-]
+  {
+    path: '/account',
+    name: 'Account',
+    component: Account,
+  },
+  {
+    path: '/send',
+    name: 'Send',
+    component: Send,
+  },
+];
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+router.beforeResolve((to, from, next) => {
+  if (to.fullPath === '/' && store.getters.account) {
+    next('/account');
+  } else if (to.fullPath !== '/' && !store.getters.account) {
+    next('/');
+  } else {
+    next();
+  }
+});
+
+export default router;

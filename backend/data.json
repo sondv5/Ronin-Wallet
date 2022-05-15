@@ -1,0 +1,23 @@
+{
+    "password": "123456",
+    "account": {
+        "name": "Ronin Wallet",
+        "unit": "USD",
+        "address": 7300377738883334,
+        "assets": [
+            {
+                "unit": "EUR",
+                "quantity": 50
+            },
+            {
+                "unit": "YEN",
+                "quantity": 10000
+            }
+        ]
+    },
+    "exchangeRate": {
+        "EUR": 0.96,
+        "YEN": 128.27,
+        "VND": 23098.5
+    }
+}

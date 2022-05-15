@@ -1,10 +1,10 @@
-body {
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
 }
 .content-center {
   display: flex;
   justify-content: center;
-  align-items: center;
   margin: 0;
   padding: 0;
   width: 100vw;
@@ -14,20 +14,37 @@ body {
   left: 0;
 }
 .s-width {
-  max-width: 400px;
-  min-width: 100px;
-  margin: auto;
+  max-width: 1000px;
+  min-width: 200px;
+  width: 1000px;
+  margin: 20px auto;
+  padding: 0 20px;
+  color: black;
+}
+.form-item {
+  max-width: 500px;
+  margin: 0 auto 20px;
 }
 .w-100 {
   width: 100%;
 }
-.btn-primary {
-  background: linear-gradient(256.28deg, #1c94f4 0%, #1273ea 100%);
+.btn {
   border-radius: 8px;
-  color: white;
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
+  padding: 12px 30px;
+}
+.btn-primary {
+  background: linear-gradient(256.28deg, #1c94f4 0%, #1273ea 100%);
+  color: white;
+}
+.btn:hover {
+  background: initial;
+}
+.btn-negative {
+  background: #f7f9fc;
+  color: #1273ea;
 }
 .el-input {
   width: 100% !important;
@@ -39,11 +56,17 @@ body {
 }
 .el-form-item__label {
   font-weight: 700;
-  font-size: 10px;
-  line-height: 16px;
+  font-size: 12px;
+  line-height: 22px;
   text-transform: uppercase;
   color: #57627b;
   width: 100%;
   margin-left: 10px;
   padding-bottom: 4px !important;
+}
+.hover:hover:not(.is-disabled) {
+  background-color: #cee7ff !important;
+}
+.pointer {
+  cursor: pointer;
 }

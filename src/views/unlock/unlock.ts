@@ -12,7 +12,7 @@ export default class Unlock extends Vue {
   };
 
   async checkPassword() {
-    // check empty password when press enter
+    // check empty password
     this.formObj.password = (this.formObj.password || '').trim();
     if (!this.formObj.password) {
       return false;
@@ -27,6 +27,7 @@ export default class Unlock extends Vue {
         });
       });
     this.setAccount(result);
+
     const exchangeRate = await this.$http
       .get('/exchange-rate', this.formObj)
       .catch((err) => {

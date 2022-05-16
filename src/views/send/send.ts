@@ -80,30 +80,31 @@ export default class Send extends Vue {
 
   async submit() {
     const valid = await this.form.validate();
-    if (valid) {
-      this.$http
-        .post('/send', this.formObj)
-        .then((data) => {
-          this.$store.commit('setAccount', data);
-          this.$alert(
-            `<div>Your ${this.formObj.asset} has been sent!</div>
-          <div>Thank you for using our service</div>`,
-            'Successfully Sent',
-            {
-              type: 'success',
-              dangerouslyUseHTMLString: true,
-              showClose: false,
-              customClass: 'w400',
-            }
-          ).finally(() => {
-            this.$router.push('/account');
-          });
-        })
-        .catch((err) => {
-          this.$alert(err.response.data, 'Error Occurred', {
-            type: 'error',
-          });
-        });
+    if (!valid) {
+      return;
     }
+    this.$http
+      .post('/send', this.formObj)
+      .then((data) => {
+        this.$store.commit('setAccount', data);
+        this.$alert(
+          `<div>Your ${this.formObj.asset} has been sent!</div>
+          <div>Thank you for using our service</div>`,
+          'Successfully Sent',
+          {
+            type: 'success',
+            dangerouslyUseHTMLString: true,
+            showClose: false,
+            customClass: 'w400',
+          }
+        ).finally(() => {
+          this.$router.push('/account');
+        });
+      })
+      .catch((err) => {
+        this.$alert(err.response.data, 'Error Occurred', {
+          type: 'error',
+        });
+      });
   }
 }

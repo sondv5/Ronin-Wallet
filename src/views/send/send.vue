@@ -11,12 +11,13 @@
       </div>
       <div class="app-form">
         <el-form
+          :rules="formRules"
           @keydown.enter.native.prevent="checkPassword"
           ref="form"
           :model="formObj"
           label-position="top"
         >
-          <el-form-item class="tl-title form-item" label="FROM">
+          <el-form-item class="tl-title form-item" prop="from" label="FROM">
             <el-input
               class="w-100"
               :disabled="true"
@@ -27,34 +28,30 @@
                 .join(' ')})`"
             />
           </el-form-item>
-          <el-form-item class="tl-title form-item" label="TO">
-            <el-input
-              class="w-100"
-              show-password
-              placeholder="TO"
-              v-model="formObj.to"
-            />
+          <el-form-item class="tl-title form-item" prop="to" label="TO">
+            <el-input class="w-100" v-model="formObj.to" />
           </el-form-item>
-          <el-form-item class="tl-title form-item" label="ASSET">
-            <el-input
-              class="w-100"
-              placeholder="ASSET"
-              v-model="formObj.asset"
-            />
+          <el-form-item class="tl-title form-item" prop="asset" label="ASSET">
+            <app-asset-select class="w-100" v-model="formObj.asset" />
           </el-form-item>
-          <el-form-item class="tl-title form-item" label="AMOUNT">
+          <el-form-item prop="amount" class="tl-title form-item" label="AMOUNT">
             <app-amount-select
               class="w-100"
-              placeholder="AMOUNT"
               v-model="formObj.amount"
               :note="assetAvailable"
+              :allow-empty="true"
+              :max="assetAvailableOrigin"
+              @setMax="formObj.amount = assetAvailableOrigin"
             />
           </el-form-item>
           <el-form-item class="w-100 form-item" style="margin-top: 50px;">
-            <el-button class="btn btn-negative">
+            <el-button
+              @click="$router.push('/account')"
+              class="btn btn-negative"
+            >
               Cancel
             </el-button>
-            <el-button class="btn btn-primary">
+            <el-button @click="submit" class="btn btn-primary">
               Send
             </el-button>
           </el-form-item>

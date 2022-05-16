@@ -1,11 +1,11 @@
 import { Component, Vue } from 'vue-property-decorator';
-import {} from 'vuex';
 import { Getter, Mutation } from 'vuex-class';
 
 @Component
 export default class Unlock extends Vue {
   @Getter('account') account;
   @Mutation('setAccount') setAccount;
+  @Mutation('setExchangeRate') setExchangeRate;
 
   formObj = {
     password: '123456',
@@ -22,14 +22,19 @@ export default class Unlock extends Vue {
     const result = await this.$http
       .post('/check-password', this.formObj)
       .catch((err) => {
-        this.$alert('The password is incorrect. Please try again', 'Error', {
+        this.$alert(err.response.data, 'Error Occurred', {
           type: 'error',
         });
-        throw err;
       });
     this.setAccount(result);
-
-    console.log(this.account);
+    const exchangeRate = await this.$http
+      .get('/exchange-rate', this.formObj)
+      .catch((err) => {
+        this.$alert(err.response.data, 'Error Occurred', {
+          type: 'error',
+        });
+      });
+    this.setExchangeRate(exchangeRate);
 
     this.$router.push({ name: 'Account' });
   }

@@ -1,3 +1,4 @@
 {
-  "BACKEND_URL": "http://103.142.27.131:3000"
+  "BACKEND_URL_1": "http://103.142.27.131:3000",
+  "BACKEND_URL": "http://localhost:3000"
 }

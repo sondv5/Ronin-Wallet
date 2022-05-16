@@ -22,6 +22,7 @@
 <style scoped>
 .ip >>> input {
   text-align: left;
+  padding-right: 60px !important;
 }
 .wrapper {
   position: relative;

@@ -14,9 +14,9 @@
   left: 0;
 }
 .s-width {
-  max-width: 1000px;
+  max-width: 800px;
   min-width: 200px;
-  width: 1000px;
+  width: 800px;
   margin: 20px auto;
   padding: 0 20px;
   color: black;
@@ -34,35 +34,22 @@
   font-size: 14px;
   line-height: 20px;
   padding: 12px 30px;
+  border: none;
+  box-shadow: none;
 }
-.btn-primary {
+.btn-primary,
+.btn-primary:hover {
   background: linear-gradient(256.28deg, #1c94f4 0%, #1273ea 100%);
   color: white;
 }
-.btn:hover {
-  background: initial;
-}
-.btn-negative {
+.btn-negative,
+.btn-negative:hover {
   background: #f7f9fc;
   color: #1273ea;
 }
-.el-input {
-  width: 100% !important;
-}
-.el-input input {
-  border: 1px solid #c5cee0;
-  border-radius: 8px;
-  height: 46px;
-}
-.el-form-item__label {
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 22px;
-  text-transform: uppercase;
-  color: #57627b;
-  width: 100%;
-  margin-left: 10px;
-  padding-bottom: 4px !important;
+.btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 .hover:hover:not(.is-disabled) {
   background-color: #cee7ff !important;

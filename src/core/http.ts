@@ -1,3 +1,4 @@
+import store from '@/store';
 import axios from 'axios';
 
 let baseUrl = '';
@@ -13,24 +14,40 @@ async function config() {
   });
 }
 
-async function get(url: string, data?: any) {
+async function get(url: string, data?: any, silent = false) {
+  if (silent === false) {
+    store.commit('incrementLoading');
+  }
   return axios
     .request({
       method: 'GET',
       data: data,
       url: baseUrl + url,
     })
-    .then((rp) => rp.data);
+    .then((rp) => rp.data)
+    .finally(() => {
+      if (silent === false) {
+        store.commit('decrementLoading');
+      }
+    });
 }
 
-async function post(url: string, data: any) {
+async function post(url: string, data?: any, silent = false) {
+  if (silent === false) {
+    store.commit('incrementLoading');
+  }
   return axios
     .request({
       method: 'POST',
       data: data,
       url: baseUrl + url,
     })
-    .then((rp) => rp.data);
+    .then((rp) => rp.data)
+    .finally(() => {
+      if (silent === false) {
+        store.commit('decrementLoading');
+      }
+    });
 }
 
 export const $http = {

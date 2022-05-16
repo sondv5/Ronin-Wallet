@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     $isLoading: 0,
     account: null,
+    exchangeRate: null,
   },
   mutations: {
     incrementLoading(state) {
@@ -24,6 +25,9 @@ export default new Vuex.Store({
     setAccount(state, value) {
       state.account = value;
     },
+    setExchangeRate(state, value) {
+      state.exchangeRate = value;
+    },
   },
   getters: {
     isLoading(state) {
@@ -31,6 +35,9 @@ export default new Vuex.Store({
     },
     account(state) {
       return state.account;
+    },
+    exchangeRate(state) {
+      return state.exchangeRate;
     },
   },
 });

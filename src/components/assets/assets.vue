@@ -4,8 +4,12 @@
     <div class="asset" v-for="asset in account.assets" :key="asset.unit">
       <img :src="`images/${asset.unit.toLowerCase()}.svg`" alt="" />
       <div>
-        <div class="quantity">{{ asset.quantity }} {{ asset.unit }}</div>
-        <div class="value">{{ asset.quantity }} VNĐ</div>
+        <div class="quantity">
+          {{ asset.quantity | easyLook }} {{ asset.unit }}
+        </div>
+        <div class="value">
+          {{ asset.quantity | toVND(asset.unit) | easyLook }} VND
+        </div>
       </div>
     </div>
   </div>

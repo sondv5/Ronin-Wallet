@@ -4,9 +4,12 @@
       <div class="circle">&nbsp;</div>
       <span>{{ account.name }}</span>
     </div>
-    <div class="menu hover">
-      <i class="el-icon-user-solid"></i>
-    </div>
+    <el-popover placement="bottom" width="230" trigger="click">
+      <el-button @click="lock">Lock and Reset Account Data</el-button>
+      <div class="menu hover" slot="reference">
+        <i class="el-icon-user-solid"></i>
+      </div>
+    </el-popover>
   </div>
 </template>
 <script src="./header.ts" />

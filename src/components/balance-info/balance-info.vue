@@ -19,10 +19,8 @@
     <div class="divider"></div>
     <div class="info" style="padding: 30px;">
       <div class="balance">
-        <div>1,000 USD</div>
-        <div>
-          23,000,000 VNĐ
-        </div>
+        <div>{{ account.assets | sumToUSD | easyLook }} USD</div>
+        <div>{{ account.assets | sumToVND | easyLook }} VNd</div>
       </div>
       <div class="logo" style="margin-top: 14px;">
         <app-ronin-logo stroke="#1B8FF3" fill="white" width="40" />

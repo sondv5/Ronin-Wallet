@@ -1,0 +1,36 @@
+.el-message-box {
+  font-family: Open Sans, sans-serif;
+  border-radius: 16px;
+}
+.el-message-box__title {
+  text-align: center;
+  padding: 10px;
+}
+.el-message-box__btns {
+  text-align: center;
+  margin: 10px 0;
+}
+.el-message-box__btns > button.el-button--primary {
+  width: calc(100% - 50px);
+  background-color: #2f80ed;
+  border-radius: 8px;
+  padding: 12px 0;
+}
+.el-input {
+  width: 100% !important;
+}
+.el-input input {
+  border: 1px solid #c5cee0;
+  border-radius: 8px;
+  height: 46px;
+}
+.el-form-item__label {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 22px;
+  text-transform: uppercase;
+  color: #57627b;
+  width: 100%;
+  margin-left: 10px;
+  padding-bottom: 4px !important;
+}

@@ -8,8 +8,8 @@ Url: http://103.142.27.131:8080
 
 Password: 123456
 
-Note: account info will be reset after log in
-
+Note: account info will be reset after logging in
+```
 
 In this project, I used some libraries
 

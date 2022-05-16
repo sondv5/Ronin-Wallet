@@ -42,7 +42,9 @@ function toVND(value, fromUnit): number {
 }
 
 Vue.filter('easyLook', (value) => {
-  const splitedStrings = (isNaN(value) ? '' : value).toString().split('.');
+  const splitedStrings = (isNaN(value) ? '' : +value.toFixed(6))
+    .toString()
+    .split('.');
   const beforeDot: string = splitedStrings[0];
   const afterDot: string = splitedStrings[1];
   const reverseString = beforeDot

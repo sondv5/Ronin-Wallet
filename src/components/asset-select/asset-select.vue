@@ -17,7 +17,7 @@
       <div>
         <div
           @click="handleSelect(asset.unit)"
-          class="asset"
+          class="asset pointer"
           v-for="asset in account.assets"
           :key="asset.unit"
         >

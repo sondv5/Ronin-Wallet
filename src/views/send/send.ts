@@ -92,6 +92,8 @@ export default class Send extends Vue {
             {
               type: 'success',
               dangerouslyUseHTMLString: true,
+              showClose: false,
+              customClass: 'w400',
             }
           ).finally(() => {
             this.$router.push('/account');

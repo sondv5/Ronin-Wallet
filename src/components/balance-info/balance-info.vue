@@ -20,7 +20,7 @@
     <div class="info" style="padding: 30px;">
       <div class="balance">
         <div>{{ account.assets | sumToUSD | easyLook }} USD</div>
-        <div>{{ account.assets | sumToVND | easyLook }} VNd</div>
+        <div>{{ account.assets | sumToVND | easyLook }} VND</div>
       </div>
       <div class="logo" style="margin-top: 14px;">
         <app-ronin-logo stroke="#1B8FF3" fill="white" width="40" />
@@ -60,11 +60,11 @@
 .balance > :nth-child(1) {
   color: white;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 26px;
 }
 .balance > :nth-child(2) {
   font-weight: 400;
-  font-size: 18px;
+  font-size: 14px;
   color: #8dc9f9;
   margin-top: 10px;
 }

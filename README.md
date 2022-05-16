@@ -5,6 +5,7 @@ This is a demo project that use for asset management.
 ## Demo
 
 Url: http://103.142.27.131:8080
+Password: 123456
 
 In this project, I used some libraries
 

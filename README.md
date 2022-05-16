@@ -1,10 +1,10 @@
 # Ronin Wallet
 
-This is a project that use for asset management.
+This is a demo project that use for asset management.
 
 ## Demo
 
-Url: http://103.142.27.131:8080/
+Url: http://103.142.27.131:8080
 
 In this project, I used some libraries
 

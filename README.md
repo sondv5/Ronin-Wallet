@@ -3,7 +3,7 @@
 This is a demo project that use for asset management.
 
 ## Demo
-
+```
 Url: http://103.142.27.131:8080
 
 Password: 123456
@@ -12,9 +12,10 @@ Note: account info will be reset after logging in
 ```
 
 In this project, I used some libraries
-
+```
 For Back-end (NodeJS): express, body-parser, cors for creating a simple server to interact with my Front-End
-
+```
+```
 For Front-End:
 + VueJS: building user interfaces and Single Page Applications
 + VueX: state management 
@@ -22,7 +23,7 @@ For Front-End:
 + Axios: making XMLHttpRequests from the browser
 + Lodash: providing utility functions like: camelCase, upperFirst, ...
 + ElementUI: providing based components
-
+```
 ## Project setup
 ```
 npm install

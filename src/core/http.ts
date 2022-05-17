@@ -25,7 +25,7 @@ async function request(reqInfo: {
   }
   return axios
     .request({
-      method: 'GET',
+      method: reqInfo.method,
       data: reqInfo.data,
       url: baseUrl + reqInfo.url,
     })

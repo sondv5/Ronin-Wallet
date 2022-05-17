@@ -14,40 +14,45 @@ async function config() {
   });
 }
 
-async function get(url: string, data?: any, silent = false) {
-  if (silent === false) {
+async function request(reqInfo: {
+  method: 'GET' | 'POST' | 'PUT' | 'DELETE';
+  url: string;
+  data?: any;
+  silent?: boolean;
+}) {
+  if (!reqInfo.silent) {
     store.commit('incrementLoading');
   }
   return axios
     .request({
       method: 'GET',
-      data: data,
-      url: baseUrl + url,
+      data: reqInfo.data,
+      url: baseUrl + reqInfo.url,
     })
     .then((rp) => rp.data)
     .finally(() => {
-      if (silent === false) {
+      if (!reqInfo.silent) {
         store.commit('decrementLoading');
       }
     });
 }
 
-async function post(url: string, data?: any, silent = false) {
-  if (silent === false) {
-    store.commit('incrementLoading');
-  }
-  return axios
-    .request({
-      method: 'POST',
-      data: data,
-      url: baseUrl + url,
-    })
-    .then((rp) => rp.data)
-    .finally(() => {
-      if (silent === false) {
-        store.commit('decrementLoading');
-      }
-    });
+function get(url: string, data?: any, silent = false) {
+  return request({
+    method: 'GET',
+    url,
+    data,
+    silent,
+  });
+}
+
+function post(url: string, data?: any, silent = false) {
+  return request({
+    method: 'POST',
+    url,
+    data,
+    silent,
+  });
 }
 
 export const $http = {

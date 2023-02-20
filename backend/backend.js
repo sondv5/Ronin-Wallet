@@ -45,7 +45,7 @@ app.post('/send', async (req, res) => {
   const targetAsset = data.account.assets.find((x) => x.unit === asset);
   if (targetAsset && targetAsset.quantity >= amount) {
     targetAsset.quantity = targetAsset.quantity - amount;
-    console.log(`Send ${amount} ${asset} to ${to}`);
+    console.info(`Send ${amount} ${asset} to ${to}`);
     res.json(data.account);
   } else {
     res.status(400).send('Asset is not enough to send. Please check again');
@@ -53,5 +53,5 @@ app.post('/send', async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Back-end listening on port ${port}`);
+  console.info(`Back-end listening on port ${port}`);
 });
